@@ -10,24 +10,57 @@
     <div>
         <button id="newWindow">Open New Window</button>
         <button id="goBack">Take Me Back!</button>
+        <button id="closeWindow">Close Window</button>
         <button id="displayLocation">Display current location</button>
         <button id="assignLocation">Assign to location object</button>
         <button id="callReplace">Call replace() method</button>
+        <button id="navigatorExample" >Navigator Example</button>
+        <button id="resize">Resize and Center</button>
+        <button id="experiment">Experiment</button>
+        <button id="experiment2">Experiment2</button>
+        <!-- <button id="newWindow">Open New Window</button>
+        <button id="goBack">Take Me Back!</button>
+      
         <button id="experiment">Experiment</button>
         <button id="experiment2">Experiment2</button>
         <button id="navigatorExample" >Navigator Example</button>
-        <button id="resize">Resize and Center</button>
+        <button id="resize">Resize and Center</button> -->
      </div>
 </body>
 <script>
     "use strict"
 
     window.onload = newWindow
+    //window is the browser object model
+
+
+    // event 
+    // onevent 
+    // event handler function
    
     function newWindow()
     {
-        document.getElementById("newWindow").onclick = openWindow
-        document.getElementById("goBack").onclick = goBack
+        document.getElementById("newWindow").onclick = function()
+        {
+            window.open("http://saskpolytech.ca")
+        }
+
+        document.getElementById("goBack").onclick = function()
+        {
+            window.history.back()
+            //window.history.go(-1)
+            //window.history.go(2)
+
+        }
+        document.getElementById("closeWindow").onclick = function()
+        {
+            window.close()
+        }
+        
+        
+        
+        // document.getElementById("newWindow").onclick = openWindow
+        // document.getElementById("goBack").onclick = goBack
         document.getElementById("displayLocation").onclick = function() 
         {
         window.alert(window.location);
@@ -43,6 +76,11 @@
             window.location.replace("https://sportsnet.ca");
         };
 
+        document.getElementById("navigatorExample").onclick = function() {
+            window.alert(window.navigator.userAgent) 
+        };
+
+
         let timeoutID;
         let count = 0;
 
@@ -51,7 +89,7 @@
                 count++;
                 debugger;
                 alert(count);
-            }, 2000);
+            }, 5000);
         };
 
         document.getElementById("experiment2").onclick = function() {
@@ -83,15 +121,18 @@
 
     }
 
-    function openWindow()
-    {
-        window.open("http://saskpolytech.ca")
-    }
+    // function openWindow()
+    // {
+    //     window.open("http://saskpolytech.ca")
+    // }
 
-    function goBack()
-    {
-        window.history.back()
-    }
+    // function goBack()
+    // {
+    //     window.history.back()
+    // }
 
+    
+
+        
 </script>
 </html>

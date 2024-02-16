@@ -45,9 +45,13 @@
           // Loop through list items until the new item's text is less than the current item's text
           //  or the end of the list is reached
           let myListItem = myList.firstElementChild;
+          console.log(myListItem)
           while (myListItem !== null) {
               let myCurrentText = myListItem.textContent;
+              console.log(myCurrentText)
               if (myNewText.toLowerCase() < myCurrentText.toLowerCase()) {
+                  console.log(myNewText.toLowerCase())
+                  console.log(myCurrentText.toLowerCase())
                   break;
               }
               myListItem = myListItem.nextElementSibling;

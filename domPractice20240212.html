@@ -1,25 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-   <meta charset="UTF-8">
-   <title>Examples Practice for LO4</title>
-   <script src="scripts/jquery-3.4.1.min.js" defer></script>
+  <head>
+    <meta charset="UTF-8">
+    <title>Examples Practice for LO4</title>
+  </head>
+  <body>
+      <p id="para1">
+          simple text
+      </p>
+      <p id="para2">
+            I am the 
+            <strong>
+                  KING
+            </strong>
+            of the world!
+      </p>
+  </body>
 
-   
-</head>
-<body>
-    <p id="para">
-		I am the <strong>KING</strong> of the world!
-	</p>
-</body>
-<script>
+  <script>
     "use strict"
-     
-     let p  = document.getElementById("para")
 
-     console.log(p.parentNode)
-     console.log(p.childNodes)
-     console.log(p.nextSibling)
-     console.log(p.previousSibling)
-</script>
+    let para2 = document.getElementById("para2")
+
+    console.log("Parent for paragraph2"+para2.parentNode)
+    console.log(para2.parentNode)
+    console.log("Child count for paragraph2"+ para2.childNodes)
+    console.log("Child nodes for Para2")
+    // console.log(para2.parentNode)
+    // console.log(para2.parentNode)
+    // console.log(para2.parentNode)
+
+    //console.log(para2.childElementCount)
+    for(let i=0;i<para2.childNodes.length;i++)
+    {
+      console.log("child Node number"+(i+1))
+      console.log(para2.childNodes[i])
+    }
+
+    console.log(para2.childNodes)
+    console.log("First child"+para2.firstChild)
+    console.log(para2.firstChild)
+    console.log("Last child"+para2.lastChild)
+    console.log(para2.lastChild)
+    console.log("Previous sibling"+para2.previousSibling)
+    console.log(para2.previousSibling)
+    console.log("Next sibling"+para2.nextSibling)
+    console.log(para2.nextSibling)
+
+
+    //creating new paragraph
+
+    let newParagraph = document.createElement("p")
+    let newTextNode = document.createTextNode("This is the third paragraph")
+    newParagraph.appendChild(newTextNode)
+
+    let rootNode = para2.parentNode
+    rootNode.appendChild(newParagraph)
+
+    let para1 = document.getElementById("para1")
+
+    //rootNode.insertBefore(newParagraph,para2)
+    //rootNode.replaceChild(newParagraph,para2)
+    
+
+    //rootNode.removeChild(para1)
+
+    // adding new em element
+    let strongNode = para2.childNodes[1]
+    let textNodeFromStrong = strongNode.childNodes[0]
+    let newElement = document.createElement("em")
+    newElement.appendChild(textNodeFromStrong)
+    strongNode.appendChild(newElement)
+
+
+
+
+
+
+
+
+  </script>
 </html>

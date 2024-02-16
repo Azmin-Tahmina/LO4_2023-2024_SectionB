@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Examples Practice for LO4 Jquery</title>
+    <script src="scripts/jquery-3.4.1.min.js" ></script>
+    <style type="text/css">
+        #result {
+            display: none;
+            background-color: #8CECE3;
+            border: 1px solid black;
+            padding: 3px;
+            width: 10em;
+        }
+        #p{
+            display: none; 
+            background-color: #8CECE3;
+            border: 1px solid black;
+            padding: 3px;
+            width: 10em;       
+        }
+
+       
+    </style>
+
+  </head>
+  <body>
+    <!-- <p>
+        Click the button below to test to see if you have
+        correctly installed jQuery
+    </p>
+    
+    <p>
+        <button id="btn1">Click to test</button>
+    </p>
+    
+    <p id="result">
+        If you can see this paragraph, you have correctly installed jQuery!
+    </p>
+
+    <p id="p1" class="highlight">
+        test
+    </p>
+    <h4>Sample List:</h4>
+        <ul>
+            <li>
+                <span>Test1</span>
+                <span>Test1</span>
+                <span>Test1</span>
+            </li>
+            <li>Test1</li>
+            <li>Test1</li>
+            <li>Test1</li>
+            <li>Test1</li>
+            <li>Test1</li>
+            <li>Test1</li>
+        </ul> -->
+
+        <p id="para">
+            I am the <strong>KING</strong> of the world!
+        </p>
+
+        <div>
+            <button id="btnTest">Test</button>
+        </div>
+
+    <!-- <script>
+      // Add test function to button
+      $("#btnTest").on("click", test);
+    </script> -->
+
+
+  </body>
+
+  <script>
+    "use strict"
+
+    // let p1 = document.getElementById("result")
+    // document.getElementById("btn1").onclick = function(){
+    //     //p1.style.display = block;
+    // }
+
+    // function clickMe()
+    // {
+    //     jQuery("#result").show()
+    // }
+
+    // //jQuery.onclick - it will not work!
+    // jQuery("#btn1").on("click",clickMe)
+
+
+//     function clickMe()
+//     {
+//         $("#result").show()
+//     }
+
+//     //jQuery.onclick - it will not work!
+//     $("#btn1").on("click",clickMe)
+    
+// //    $("p") – all <p> elements in the document
+// // •	$("#result") – returns a jQuery object with a reference to the element with the id “result”
+// // •	$("p.highlight") – selects all <p> elements with a class of “highlight”
+// // •	$("li span") – all <span> elements within <li> elements
+// // •	$("li > span") – all <span> elements that are direct children of <li> elements
+
+//     $("p").css(
+//         {
+//             "background-color":"red",
+//             "font-weight": "bold"
+//         }
+//     )
+
+//     $("p.highlight").css(
+//         {
+//             "background-color":"pink",
+//             "font-weight": "bold"
+//         }
+//     )
+
+//     $("li span").css(
+//         {
+//             "background-color":"pink",
+//             "font-weight": "bold"
+//         }
+//     )
+
+//     $("li>span").css(
+//         {
+//             "background-color":"blue",
+//             "font-weight": "bold"
+//         }
+//     )
+
+//     //o	$("h2:eq(3)") 
+//     $("li:eq(3)").css(
+//         {
+//             "background-color":"blue",
+//             "font-weight": "bold"
+//         }
+//     )
+
+//     $("li:even").css(
+//         {
+//             "background-color":"purple",
+//             "font-weight": "bold"
+//         }
+//     )
+
+    let clickNumber = 0;
+
+    function clickFunction(){
+        clickNumber++
+
+        switch(clickNumber){
+            case 1:
+                alert("Adding new <p> element to <body> element");
+                $("body").append("<p>Cheesiest movie line EVER</p>" )
+                break;
+            // case 2: 
+                
+            // case 3:
+                
+            // case 4:
+                
+            // case 5:
+            //     alert("Removing the newly added <p> element");
+            //     parent.removeChild(newElement)    
+            //     break;
+            // case 6:
+            //     alert("Adding new <p> element before the existing paragraph");
+            //     parent.insertBefore(newElement,existingElement)      
+            //     break;
+            // case 7:
+            //     alert("Removing the newly added <p> element, again");
+            //     parent.removeChild(newElement)        
+            //     break;
+            // case 8:   
+            //     alert("Replacing the existing paragraph with the new one"); 
+            //     parent.replaceChild(newElement,existingElement)   
+            //     break;   
+            default:
+                alert("All Done!")           
+
+        }
+    }    
+
+
+    $(document).ready(function(){
+        $("#btnTest").on("click",clickFunction)
+    })
+
+   
+
+// window.onload = function(){
+//         document.getElementById("innerTextorHTMLButton").onclick = setInnerTextorElement
+//         document.getElementById("btnNextStep").onclick = clickFunction
+//         let clickNumber = 0
+//         let newElement, newTextNode, existingElement, parent
+
+//         function setInnerTextorElement()
+//         {
+//             document.getElementById("innerTextorHTMLExample").innerHTML = "<strong>I am the king</strong>"
+//             //document.getElementById("innerTextorHTMLExample").innerText = "<strong>I am the king</strong>"
+//         }
+
+
+//         function clickFunction()
+//         {
+//             clickNumber++
+
+//             switch(clickNumber){
+//                 case 1:
+//                     alert("Creating <p> element")
+//                     newElement =  document.createElement("p")
+//                     break
+//                 case 2: 
+//                     alert("Creating text node");
+//                     newTextNode =  document.createTextNode("Cheesiest movie line EVER")  
+//                     break;
+//                 case 3:
+//                     alert("Adding text node to new <p> element");
+//                     newElement.appendChild(newTextNode)
+//                     break;
+//                 case 4:
+//                     alert("Adding new <p> element to <body> element");
+//                     existingElement = document.getElementById("para")  
+//                     parent  =   existingElement.parentNode
+//                     parent.appendChild(newElement)
+//                     break;
+//                 case 5:
+//                     alert("Removing the newly added <p> element");
+//                     parent.removeChild(newElement)    
+//                     break;
+//                 case 6:
+//                     alert("Adding new <p> element before the existing paragraph");
+//                     parent.insertBefore(newElement,existingElement)      
+//                     break;
+//                 case 7:
+//                     alert("Removing the newly added <p> element, again");
+//                     parent.removeChild(newElement)        
+//                     break;
+//                 case 8:   
+//                     alert("Replacing the existing paragraph with the new one"); 
+//                     parent.replaceChild(newElement,existingElement)   
+//                     break;   
+//                 default:
+//                     alert("All Done!")           
+
+//             }
+//         }
+//     }
+
+   
+    
+    
+  </script>
+</html>
