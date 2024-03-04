@@ -57,13 +57,10 @@
     }
 
     // Now if I want to make a list based on user input!
-
-    let listItemText = $("#txtItem").val();
-
-
     // added button click!
     $("#btnGo").on("click",function (){
-        alert(listItemText)
+        let listItemText = $("#txtItem").val();
+        // We can check for empty input
         let outputPanel = $("#output")
         // Now we will check, if there is an unordered list already existing or not
         if(outputPanel.html().trim() === "")
@@ -77,14 +74,14 @@
         let currentListItem = $("#output ul li:first");
         console.log(currentListItem)
 
-        // while(currentListItem.length !== 0)
-        // {
-        //     if(listItemText.toLowerCase() < currentListItem.text().toLowerCase())
-        //     {
-        //         break;
-        //     }
-        //     currentListItem = currentListItem.next();
-        // }
+        while(currentListItem.length !== 0)
+        {
+            if(listItemText.toLowerCase() < currentListItem.text().toLowerCase())
+            {
+                break;
+            }
+            currentListItem = currentListItem.next();
+        }
 
         if(currentListItem.length === 0)
         {
