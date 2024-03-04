@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Example of Creating HTML Elements Using Jquery/Cross-browser modification Example</title>
+    <script src="scripts/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <h1>A cross-browser script</h1>
+    <p class="modify">
+        This paragraph will be modified.
+    </p>
+
+    <h1 class="modify">This heading will be modified</h1>
+    <ul>
+        <li>This list item will not be modified</li>
+        <li class="modify">This list item will be modified</li>
+        <li>Nothing else will be modified</li>
+    </ul>
+
+    <p>
+        <button id="btnModify">Modify web page</button>
+    </p>
+    <p id="plist">
+    </p>
+    <p>
+        <label for="txtItem">Enter item to add to list: </label>
+        <input type="text" id="txtItem" />
+        <input type="button" value="Go!" id="btnGo" />
+    </p>
+    <div id="output"></div>
+</body>
+<script>
+    "use strict"
+
+    $("#btnModify").on("click",function (){
+        $(".modify").html("<strong>Element has been modified</strong>")
+    });
+
+    //Example of creating a list with jquery
+    //lets divide the example into parts
+    // 1. We need some text or the array of text to create the list element
+    // 2. We need to create ul element
+    // 3. lastly we will create list items li with the texts
+    let sampleText = "Option1"
+    let sampleTextArray = ["Option1","Option2","Option3"]
+    $("#plist").html("<ul></ul>")
+    $("ul:last").attr("id","ulist")
+    let newlistItem = "<li>"+sampleText+"</li>"
+    $("#ulist").append(newlistItem)
+
+    // Now How to do that using an array
+    for(let item of sampleTextArray)
+    {
+        let createList = "<li>"+item+"</li>"
+        $("#ulist").append(createList)
+    }
+
+    // Now if I want to make a list based on user input!
+
+    let listItemText = $("#txtItem").val();
+
+
+    // added button click!
+    $("#btnGo").on("click",function (){
+        alert(listItemText)
+        let outputPanel = $("#output")
+        // Now we will check, if there is an unordered list already existing or not
+        if(outputPanel.html().trim() === "")
+        {
+            outputPanel.html("<ul></ul>")
+        }
+
+        let listItem = "<li>"+listItemText+"</li>";
+        // $("#output ul").append(listItem)
+
+        let currentListItem = $("#output ul li:first");
+        console.log(currentListItem)
+
+        // while(currentListItem.length !== 0)
+        // {
+        //     if(listItemText.toLowerCase() < currentListItem.text().toLowerCase())
+        //     {
+        //         break;
+        //     }
+        //     currentListItem = currentListItem.next();
+        // }
+
+        if(currentListItem.length === 0)
+        {
+            $("#output ul").append(listItem)
+        }
+        else
+        {
+            currentListItem.before(listItem)
+        }
+
+    });
+
+
+
+
+
+
+</script>
+</html>

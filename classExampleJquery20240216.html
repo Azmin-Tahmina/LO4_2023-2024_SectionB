@@ -156,31 +156,32 @@
                 alert("Adding new <p> element to <body> element");
                 $("body").append("<p>Cheesiest movie line EVER</p>" )
                 break;
-            // case 2: 
-                
-            // case 3:
-                
-            // case 4:
-                
-            // case 5:
-            //     alert("Removing the newly added <p> element");
-            //     parent.removeChild(newElement)    
-            //     break;
-            // case 6:
-            //     alert("Adding new <p> element before the existing paragraph");
-            //     parent.insertBefore(newElement,existingElement)      
-            //     break;
-            // case 7:
-            //     alert("Removing the newly added <p> element, again");
-            //     parent.removeChild(newElement)        
-            //     break;
-            // case 8:   
-            //     alert("Replacing the existing paragraph with the new one"); 
-            //     parent.replaceChild(newElement,existingElement)   
-            //     break;   
+            case 2:
+                alert("Removing the newly added <p> element");
+                $("p:last").remove();
+                break;
+            case 3:
+                alert("Adding new <p> element before the existing paragraph");
+                $("body").prepend("<p>Cheesiest movie line EVER</p>" );
+                break;
+            case 4:
+                alert("Removing the newly added <p> element, again");
+                $("p:first").remove();
+                break;
+            case 5:
+                alert("Replacing the existing paragraph with the new one")
+                $("#para").replaceWith("<p>Cheesiest movie line EVER</p>");
+                break;
+            case 6:
+                alert("Adding a new paragraph after the existing one" );
+                $("p").after("<p>I am being added after</p>")
+                break;
+            case 7:
+                alert("Adding a new paragraph in front of the first one" )
+                $("p:first").before("<p>I am being added before</p>" )
+                break;
             default:
-                alert("All Done!")           
-
+                alert("All done!")
         }
     }    
 
@@ -189,7 +190,6 @@
         $("#btnTest").on("click",clickFunction)
     })
 
-   
 
 // window.onload = function(){
 //         document.getElementById("innerTextorHTMLButton").onclick = setInnerTextorElement
@@ -224,7 +224,7 @@
 //                 case 4:
 //                     alert("Adding new <p> element to <body> element");
 //                     existingElement = document.getElementById("para")  
-//                     parent  =   existingElement.parentNode
+//                     parent  = existingElement.parentNode
 //                     parent.appendChild(newElement)
 //                     break;
 //                 case 5:
