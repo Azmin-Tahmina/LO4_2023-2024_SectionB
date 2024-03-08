@@ -22,43 +22,133 @@
         <button id="btnModify">Modify web page</button>
     </p>
     <p id="plist">
+<!--        created unordered list using jquery-->
+<!--        <h1>Test heading</h1>-->
     </p>
     <p>
         <label for="txtItem">Enter item to add to list: </label>
         <input type="text" id="txtItem" />
         <input type="button" value="Go!" id="btnGo" />
     </p>
-    <div id="output"></div>
+    <div id="output">
+<!--        add list items in here-->
+    </div>
 </body>
 <script>
     "use strict"
 
+    //document.getElementById("plist")
+
+    //
+    // let element1 = document.getElementById("plist");
+    // element1.innerHTML = "<h1>"+"Test Heading"+"</h1>"
+
+    //document.getElementById("plist").innerHTML = "<h1>"+"Test Heading"+"</h1>";
+    // $("#plist").html("<h1>Test heading</h1>")
+    // $("#plist").css();
+    // $("#plist").att();
+
+    // jQuery("#plist").html();
+
+   // let allParagraphs = $( "p" );
+
+
+
+    //$("li:eq(3)").css(
+    //         {
+    //             "background-color":"blue",
+    //             "font-weight": "bold"
+    //         }
+    //     )
+
+    //     $("li:even").css(
+    //         {
+    //             "background-color":"purple",
+    //             "font-weight": "bold"
+    //         }
+    //     )
+
+
     $("#btnModify").on("click",function (){
         $(".modify").html("<strong>Element has been modified</strong>")
     });
+
+    // $("#btnModify").on("click",function (){
+    //
+    // })
+    //
+    // $("#btnModify").on("click",clickEvent)
+    //
+    // new function clickEvent()
+    // {
+    //
+    // }
+
+
+    // <ul>
+    //     <li></li>
+    //     <li></li>
+    //     <li></li>
+    //     <li></li>
+    // </ul>
 
     //Example of creating a list with jquery
     //lets divide the example into parts
     // 1. We need some text or the array of text to create the list element
     // 2. We need to create ul element
     // 3. lastly we will create list items li with the texts
+   //
+    // 1. We need some text or the array of text to create the list element
     let sampleText = "Option1"
-    let sampleTextArray = ["Option1","Option2","Option3"]
-    $("#plist").html("<ul></ul>")
-    $("ul:last").attr("id","ulist")
-    let newlistItem = "<li>"+sampleText+"</li>"
-    $("#ulist").append(newlistItem)
+    let sampleTextArray = ["Option2","Option3","Option4"]
+
+    // 2. We need to create ul element
+
+   // / $("#plist").html("<ul></ul>")
+    $("#plist").html("<ul><li>Option0</li></ul>");
+    $("ul:last").attr("id","ulist");
+    let newlistItem = "<li>"+sampleText+"</li>";
+    $("#ulist").append(newlistItem);
+
+     // Now How to do that using an array
+     for(let item of sampleTextArray)
+     {
+         let createList = "<li>"+item+"</li>"
+         $("#ulist").append(createList)
+     }
+
+
+    $("#ulist li:eq(3)").css(
+            {
+                "background-color":"blue",
+                "font-weight": "bold"
+            }
+    );
+
+    $("#ulist li:even").css(
+        {
+            "background-color":"purple",
+            "font-weight": "bold"
+        }
+    )
+
+
+
+    // $("ul:last").attr("id","ulist")
+    // let newlistItem = "<li>"+sampleText+"</li>"
+    // $("#ulist").append(newlistItem)
 
     // Now How to do that using an array
-    for(let item of sampleTextArray)
-    {
-        let createList = "<li>"+item+"</li>"
-        $("#ulist").append(createList)
-    }
+    // for(let item of sampleTextArray)
+    // {
+    //     let createList = "<li>"+item+"</li>"
+    //     $("#ulist").append(createList)
+    // }
 
     // Now if I want to make a list based on user input!
     // added button click!
     $("#btnGo").on("click",function (){
+
         let listItemText = $("#txtItem").val();
         // We can check for empty input
         let outputPanel = $("#output")
@@ -72,7 +162,7 @@
         // $("#output ul").append(listItem)
 
         let currentListItem = $("#output ul li:first");
-        console.log(currentListItem)
+        //console.log(currentListItem)
 
         while(currentListItem.length !== 0)
         {
